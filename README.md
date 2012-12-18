@@ -1,4 +1,4 @@
-Helper to create paginated REST APIs similar to [github api v3](http://developer.github.com/v3/#pagination). 
+Helper functions to create paginated REST APIs in node.js. Took some ideas from the [github api v3](http://developer.github.com/v3/#pagination). 
 
 > I took the name from [Dexter Morgan boat](http://dexter.wikia.com/wiki/Slice_of_Life) because paginate is already used :)
 
