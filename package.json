@@ -1,0 +1,17 @@
+{
+  "name": "slice-of-life",
+  "version": "0.0.1",
+  "description": "Helps to convert \"per page\" and \"page number\" to skip/take values",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require should"
+  },
+  "repository": "",
+  "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.7.4",
+    "should": "~1.2.1",
+    "lodash": "~1.0.0-rc.3"
+  }
+}
