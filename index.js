@@ -1,8 +1,14 @@
 exports.convert = function (options) {
-  var perPage = options.per_page || options.perPage;
+
+  var perPage = options.per_page || options.perPage,
+    page = options.page || 0;
+
+  if(!perPage){
+    throw new Error('per_page parameter is required');
+  }
 
   return {
-    skip: perPage * options.page,
+    skip: perPage * page,
     limit: perPage
   };
 };
@@ -13,8 +19,12 @@ exports.convertMiddleware = function ( options ) {
       perPage: req.query.perPage || req.query.per_page || options.defaultPerPage,
       page: req.query.page
     };
-    req.pageData = exports.convert(convertOptions);
-    next();
+    try{
+      req.pageData = exports.convert(convertOptions);
+      next();
+    }catch(err){
+      res.send(400, err);    
+    }
   };
 };
 
