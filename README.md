@@ -22,7 +22,7 @@ var pageData = sliceOfLife.convert({
 
 console.log(pageData);
 
-// will print {skip: 500, take: 100} as simple as that.  
+// will print {skip: 500, limit: 100} as simple as that.  
 ~~~
 
 ## The convert middleware
@@ -39,7 +39,7 @@ app.use(sliceOfLife.convertMiddleware({defaultPerPage: 100}));
 
 app.get('/customers', function (req, res) {
   console.log(req.pageData);
-  //will print {skip: xx, take: xx};
+  //will print {skip: xx, limit: xx};
 });
 ~~~
 

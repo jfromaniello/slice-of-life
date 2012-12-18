@@ -6,19 +6,19 @@ describe('paginate.convert', function () {
     this.fixture = _.range(50);
   });
 
-  it('{per_page: 10, page: 0} to {skip: 0, take: 10}', function () {
+  it('{per_page: 10, page: 0} to {skip: 0, limit: 10}', function () {
     var result = paginate.convert({per_page: 10, page: 0});
     result.skip.should.eql(0);
     result.limit.should.eql(10);
   });
 
-  it('{per_page: 10, page: 1} to {skip: 10, take: 10}', function () {
+  it('{per_page: 10, page: 1} to {skip: 10, limit: 10}', function () {
     var result = paginate.convert({per_page: 10, page: 0});
     result.skip.should.eql(0);
     result.limit.should.eql(10);
   });
 
-  it('{perPage: 10, page: 1} to {skip: 10, take: 10}', function () {
+  it('{perPage: 10, page: 1} to {skip: 10, limit: 10}', function () {
     var result = paginate.convert({perPage: 10, page: 0});
     result.skip.should.eql(0);
     result.limit.should.eql(10);
