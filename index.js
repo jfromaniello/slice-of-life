@@ -50,7 +50,7 @@ exports.Linker = function (mask) {
   this.createLinks = function (options) {
     var perPage = options.per_page || options.perPage;
 
-    var lastPage = options.total / perPage,
+    var lastPage = Math.ceil(options.total / perPage),
       result = {};
 
     result.first = mask.replace(/\$per_page/i, perPage)

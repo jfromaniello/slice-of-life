@@ -42,6 +42,14 @@ describe('linker', function () {
     this.result.last.should.eql('http://awesome.com/customers?per_page=10&page=10');
   });
 
+  it('should handle last page number okay', function () {
+    this.result = linker.createLinks({
+      per_page: 2,
+      total: 5,
+      page: 1
+    }).last.should.eql('http://awesome.com/customers?per_page=2&page=3');
+  });
+
   describe('when there is not a next page', function(){
     before(function () {
       this.result = linker.createLinks({
