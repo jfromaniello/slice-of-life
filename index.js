@@ -48,7 +48,8 @@ exports.convertMiddleware = function ( options ) {
 exports.Linker = function (mask) {
   this.mask = mask;
   this.createLinks = function (options) {
-    var perPage = options.per_page || options.perPage;
+    var perPage = options.per_page || options.perPage,
+      currentPage = options.page || 0;
 
     var lastPage = Math.ceil(options.total / perPage),
       result = {};
@@ -56,14 +57,14 @@ exports.Linker = function (mask) {
     result.first = mask.replace(/\$per_page/i, perPage)
                     .replace(/\$page/i, 0);
 
-    if(options.page >= 1){
+    if(currentPage >= 1){
       result.prev = mask.replace(/\$per_page/i, perPage)
-                      .replace(/\$page/i, options.page - 1);
+                      .replace(/\$page/i, currentPage - 1);
     }
 
-    if(lastPage >= options.page + 1){
+    if(lastPage >= currentPage + 1){
       result.next = mask.replace(/\$per_page/i, perPage)
-                      .replace(/\$page/i, options.page + 1);
+                      .replace(/\$page/i, currentPage + 1);
     }
 
     result.last = mask.replace(/\$per_page/i, perPage)

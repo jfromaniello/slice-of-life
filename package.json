@@ -1,6 +1,6 @@
 {
   "name": "slice-of-life",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Helps to convert \"per page\" and \"page number\" to skip/take values",
   "main": "index.js",
   "scripts": {

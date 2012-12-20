@@ -50,6 +50,13 @@ describe('linker', function () {
     }).last.should.eql('http://awesome.com/customers?per_page=2&page=3');
   });
 
+  it('should assume page 0 when page is undefined', function () {
+    this.result = linker.createLinks({
+      per_page: 2,
+      total: 5
+    }).next.should.eql('http://awesome.com/customers?per_page=2&page=1');
+  });
+
   describe('when there is not a next page', function(){
     before(function () {
       this.result = linker.createLinks({
