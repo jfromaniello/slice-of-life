@@ -16,8 +16,8 @@ exports.convert = function (options) {
 exports.convertMiddleware = function ( options ) {
   return function(req, res, next) {
     var convertOptions = {
-      perPage: req.query.perPage || req.query.per_page || options.defaultPerPage,
-      page: req.query.page
+      perPage: parseInt(req.query.perPage || req.query.per_page || options.defaultPerPage, 10),
+      page:    parseInt(req.query.page, 10)
     };
     try{
       req.pageData = exports.convert(convertOptions);
