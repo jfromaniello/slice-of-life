@@ -1,13 +1,13 @@
 {
   "name": "slice-of-life",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Helps to convert \"per page\" and \"page number\" to skip/take values",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require should"
   },
-  "repository" :{ 
-    "type": "git", 
+  "repository": {
+    "type": "git",
     "url": "https://github.com/jfromaniello/slice-of-life.git"
   },
   "author": "José F. Romaniello <jfromaniello@gmail.com> (http://joseoncode.com)",
