@@ -1,6 +1,6 @@
-Helper functions to create paginated REST APIs in node.js. Took some ideas from the [github api v3](http://developer.github.com/v3/#pagination). 
+[![Build Status](https://travis-ci.org/jfromaniello/slice-of-life.svg)](https://travis-ci.org/jfromaniello/slice-of-life)
 
-![slice of life boat](http://aux.iconpedia.net/uploads/1050712019.png)
+Helper functions to create paginated REST APIs in node.js. Took some ideas from the [github api v3](http://developer.github.com/v3/#pagination).
 
 > I took the name from [Dexter Morgan boat](http://dexter.wikia.com/wiki/Slice_of_Life) because I like the show and paginate is already used :)
 
@@ -22,7 +22,7 @@ var pageData = sliceOfLife.convert({
 
 console.log(pageData);
 
-// will print {skip: 500, limit: 100} as simple as that.  
+// will print {skip: 500, limit: 100} as simple as that.
 ~~~
 
 ## The convert middleware
@@ -71,7 +71,7 @@ console.log(links);
 
 The create links method needs these options:
 
--  per_page: the amount of objects to retrieve in each page 
+-  per_page: the amount of objects to retrieve in each page
 -  total: the total amount of objects in the object set
 -  page: the current page index (base 0)
 
