@@ -4,7 +4,7 @@
   "description": "Helps to convert \"per page\" and \"page number\" to skip/take values",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require should"
+    "test": "mocha --require should --reporter spec"
   },
   "repository": {
     "type": "git",
