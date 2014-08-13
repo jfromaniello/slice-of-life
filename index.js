@@ -51,7 +51,7 @@ exports.Linker = function (mask) {
     var perPage = options.per_page || options.perPage,
       currentPage = options.page || 0;
 
-    var lastPage = Math.ceil(options.total / perPage),
+    var lastPage = Math.ceil(options.total / perPage) - 1,
       result = {};
 
     result.first = mask.replace(/\$per_page/i, perPage)

@@ -39,7 +39,7 @@ describe('linker', function () {
   });
 
   it('can create the link to the last page', function () {
-    this.result.last.should.eql('http://awesome.com/customers?per_page=10&page=10');
+    this.result.last.should.eql('http://awesome.com/customers?per_page=10&page=9');
   });
 
   it('should handle last page number okay', function () {
@@ -47,7 +47,7 @@ describe('linker', function () {
       per_page: 2,
       total: 5,
       page: 1
-    }).last.should.eql('http://awesome.com/customers?per_page=2&page=3');
+    }).last.should.eql('http://awesome.com/customers?per_page=2&page=2');
   });
 
   it('should assume page 0 when page is undefined', function () {
@@ -63,6 +63,20 @@ describe('linker', function () {
         per_page: 10,
         total: 100,
         page: 10
+      });
+    });
+
+    it('should not return a link to the next page', function () {
+      this.result.should.not.have.property('next');
+    });
+  });
+
+  describe('when there is not a next page and last page is not complete', function(){
+    before(function () {
+      this.result = linker.createLinks({
+        per_page: 100,
+        total: 21,
+        page: 0
       });
     });
 
@@ -99,7 +113,7 @@ describe('linker', function () {
         '<http://awesome.com/customers?per_page=10&page=0>; rel="first"',
         '<http://awesome.com/customers?per_page=10&page=1>; rel="prev"',
         '<http://awesome.com/customers?per_page=10&page=3>; rel="next"',
-        '<http://awesome.com/customers?per_page=10&page=10>; rel="last"'
+        '<http://awesome.com/customers?per_page=10&page=9>; rel="last"'
       ].join(',');
       this.result.should.eql(expected);
     });
